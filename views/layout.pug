@@ -1,0 +1,13 @@
+//- layout.pug
+
+html
+  head
+    meta(charet="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    title CatApp
+    link(rel='stylesheet', href='/static/bootstrap.css')
+  body
+  include navbar.pug
+  div(class='container')
+    div(class='row')
+      block content

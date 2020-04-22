@@ -1,0 +1,17 @@
+//- show-favorite.pug
+
+extends layout
+
+block content
+    div(class='col-sm-6 show-page')
+        h1 #{name}
+        img(src=image class="img-thumbnail")
+        h3 comments section
+        p #{comment}
+    div(class='col-sm-6 show-page')
+        form(method="POST" action="/comment/create/" + imgId)
+            div(class="form-group")
+                label(for="comment-section") Comment
+                textarea(class="form-control" name="comment" rows="3" placeholder="250 characters to write your masterpiece...about this cat" required)
+                button(type="submit" class="btn btn-primary") comment
+        

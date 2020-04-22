@@ -1,0 +1,42 @@
+//- show-cat.pug
+extends layout
+
+block content
+  div(class='col-sm-5 text-center')
+    form(method='POST' action='/filter')
+      div(class="form-group")
+        label(for='category') Choose a cat category:
+        select(class='category' name='category')
+          option(value='' selected) random
+          - categories.map((category) => {
+              option(value=category.id) #{category.name}
+          - });
+      div(class="form-group")
+        label(for='breed') Choose a cat breed:
+        select(class='breed' name='breed')
+          option(value='' selected) random
+          - breeds.map((breed) => {
+              option(value=breed.id) #{breed.name}
+          - });
+      div(class="form-group")
+        button(type="submit" class="btn btn-success") MORE CAT!
+
+    div(class="col-sm-12 text-center")
+      h3 Favorites
+      - favoriteList.map(x => {
+          img(src=x.imgUrl class="favorites")
+          form(method='POST' action='/favorites/show/' + x.imgId)
+            button(type="submit" class="btn btn-success") show
+          form(method='POST' action='/favorites/delete/' + x.imgId)
+            button(type="submit" class="btn btn-danger") delete
+      - });
+
+  div(class='col-sm-7 text-center')
+    div(class='row')
+      div(class='col-sm-12')
+        img(src=cat[0].url class="img-thumbnail")
+
+        div(class='row')
+          div(class='col-sm-12')
+            form(method='POST' action='/favorites/create')
+              button(type="submit" class="btn btn-success") favorite

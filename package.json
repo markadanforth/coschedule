@@ -1,0 +1,21 @@
+{
+  "name": "coschedule",
+  "version": "1.0.0",
+  "description": "review app",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "express-session": "^1.17.1",
+    "mysql": "^2.18.1",
+    "node-fetch": "^2.6.0",
+    "pug": "^2.0.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
